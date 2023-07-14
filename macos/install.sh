@@ -10,7 +10,7 @@ sudo -v
 # Ask user for required information.
 read -p "Enter your work company name: " company_name
 # Define needed variables.
-git_user_dir=~/dev/robin-thoene
+git_user_dir=~/dev/NicoleLinde
 git_company_dir=~/dev/$company_name
 git_dracula_dir=~/dev/dracula
 # Create the directory to store git repos.
