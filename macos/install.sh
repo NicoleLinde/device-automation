@@ -26,7 +26,7 @@ echo "Setting up operating system settings..."
 defaults write .GlobalPreferences com.apple.mouse.scaling -1
 defaults write -g InitialKeyRepeat -int 10
 defaults write -g KeyRepeat -int 1
-defaults write com.apple.dock tilesize -integer 20
+defaults write com.apple.dock tilesize -integer 29
 killall Dock
 echo "Done."
 
@@ -53,7 +53,6 @@ echo "Done."
 echo "Installing blocking packages please stay here and enter credentials as needed..."
 brew install --cask dotnet-sdk
 brew install --cask microsoft-teams
-brew install --cask mactex
 brew install --cask microsoft-word
 echo "Done. You can now go and let the script install the rest."
 
@@ -88,9 +87,13 @@ echo "Done."
 ### Set aliases
 ###############
 
-echo 'alias gfc="git fetch && git checkout"' >>~/.zshrc
-echo 'alias startdev="podman machine start && podman start storage-dev redis-dev mssql-dev"' >>~/.zshrc
-echo 'alias stopdev="podman stop storage-dev redis-dev mssql-dev && podman machine stop"' >>~/.zshrc
+echo alias cls=clear >>~/.zshrc
+echo alias cd..='cd ..' >>~/.zshrc
+echo alias lsa='ls -la' >>~/.zshrc
+echo alias md='mkdir' >>~/.zshrc
+echo alias gc='git checkout' >>~/.zshrc
+echo alias pod64="arch -x86_64 pod" >>~/.zshrc
+echo alias yarn64="arch -x86_64 yarn" >>~/.zshrc
 
 ###########
 ### Browser
@@ -106,18 +109,10 @@ echo "Done."
 ###########
 
 echo "Installing utility packages..."
-brew install --cask macpass
-brew install --cask inkscape
-brew install --cask teamviewer
-brew tap homebrew/cask-drivers
-brew install logitech-options
-brew install --cask gyazo
 brew install --cask iterm2
+brew install --cask 1password
 # Download the dracula theme for iterm2.
 cd $git_dracula_dir && git clone https://github.com/dracula/iterm.git
-brew install --cask nordvpn
-brew install --cask alfred
-brew install --cask logseq
 echo "Done."
 
 ###############
@@ -136,7 +131,7 @@ source ~/.zshrc
 # Install latest LTS version of node.
 nvm install --lts
 brew install yarn
-brew install podman
+brew install --cask docker
 brew install azure-cli
 brew install nuget
 brew tap azure/bicep
@@ -146,7 +141,6 @@ brew install cocoapods
 
 # SDK
 dotnet tool install --global dotnet-ef
-brew install openjdk
 
 # IDE / Editor
 brew install --cask visual-studio-code
@@ -156,9 +150,9 @@ brew install --cask rider
 brew install --cask microsoft-azure-storage-explorer
 brew install --cask postman
 brew install --cask azure-data-studio
-brew install --cask mysqlworkbench
 brew install --cask redisinsight
-brew install --cask podman-desktop
+brew install --cask figma
+brew install --cask notion
 echo "Done."
 
 #################
@@ -166,18 +160,8 @@ echo "Done."
 #################
 
 echo "Installing communication packages..."
-brew install --cask thunderbird
 brew install --cask discord
-brew install --cask signal
-echo "Done."
-
-#########
-### Media
-#########
-
-echo "Installing media packages..."
-brew install --cask spotify
-brew install --cask vlc
+brew install --cask zoom
 echo "Done."
 
 ################
@@ -185,7 +169,6 @@ echo "Done."
 ################
 
 echo "Installing office tools..."
-brew install --cask texmaker
 brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
 brew install --cask onedrive
